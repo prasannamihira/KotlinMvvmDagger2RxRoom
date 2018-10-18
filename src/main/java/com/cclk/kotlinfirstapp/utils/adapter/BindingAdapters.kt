@@ -7,7 +7,10 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.TextView
+import android.widget.ImageView
 import com.cclk.kotlinfirstapp.utils.extension.getParentActivity
+import com.squareup.picasso.Picasso
+
 
 @BindingAdapter("mutableVisibility")
 fun setMutableVisibility(view:View, visibility:MutableLiveData<Int>?){
@@ -28,4 +31,9 @@ fun setMutableText(view:TextView, text:MutableLiveData<String>?){
 @BindingAdapter("adapter")
 fun setAdapter(view: RecyclerView, adapter: RecyclerView.Adapter<*>) {
     view.adapter = adapter
+}
+
+@BindingAdapter("imageUrl")
+fun setImageUrl(imageView: ImageView, url: String?) {
+    Picasso.with(imageView.context).load(url).into(imageView)
 }
